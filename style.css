@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.header{
+    /* background-color: lightblue; */
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container{
+    height: 90%;
+    margin: 2%;
+    
+}
+.logo-img{
+   height: 100%;
+   width: 100%;
+}
+
+.nav-items{
+    width: 360px;
+    margin-right: 30px;
+    font-size: 16px;
+
+    ul{
+
+        margin: 2%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
