@@ -5,7 +5,8 @@
 }
 
 .header{
-    /* background-color: lightblue; */
+    background-color: white;
+    border: solid 1px;
     height: 100px;
     width: 100%;
     display: flex;
@@ -29,9 +30,60 @@
     font-size: 16px;
 
     ul{
-
+        list-style-type: none;
         margin: 2%;
         display: flex;
         justify-content: space-between;
     }
 }
+.body{
+    /* background-color: #ECCEAE; */
+    margin: 10px 15vh;
+}
+.search {
+    width: 100px;
+    padding: 8px;
+    margin: 2px 8px;
+    border: solid;
+}
+
+.restaurant-cards-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #f0f0f0;
+    height: 350px;
+    width: 250px;
+    margin: 30px 15px;
+    padding: 10px;
+
+}
+.card:hover {
+    cursor: pointer;
+    border: black solid 1px;
+    box-shadow: 5px 5px rgb(162, 151, 151);
+}
+
+
+.restaurant-img {
+    /* border: 1px solid; */
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    
+}
+ .res-name {
+    margin: 2px 10px;
+ }
+ .ratings {
+    margin: 15px 8px;
+ }
+ .tags {
+    margin: 20px 10px;
+ }
+ .areaname {
+    margin: 0px 10px;
+ }
