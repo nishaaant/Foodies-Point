@@ -1,43 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-
-//Header
-const Header = () => {
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img 
-                className = "logo-img"
-                src="https://www.logomaker.com/api/main/images/1j_ojFVGOMkX9W_reBe4hGff0anU9UIMhX6SjmAvfGxL_BkwyXQghPto9...s...LQtAuAUGgwJRJ4EwiTI_D9lUyU9o...jiPMYtAXH9...zzxSCKtUTh9...LEqTFPyYp1R_j_Yh1MwVpVqUdDG7HnjYe50RLZudra1...A54qmjOObS405mRjU_VENMiPBosmg965RuFL5mvCF9dhcbXpR42kVTxCkTI1KKkftoYb" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>About Us</li>
-                    <li>Home</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-};
-
-//restaurant card
-const Restaurantcard = (props) => {
-    const{resData} = props;
-
-    return (
-        <div className = "card">
-            <img className = "restaurant-img" src = {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId} />
-            <h3 className = "res-name">{resData.info.name}</h3>
-            <h4 className = "ratings">{resData.info.avgRating}⭐</h4>
-            <h5 className = "tags">{resData.info.cuisines.join(", ")}</h5>
-            <h5 className = "areaname">{resData.info.areaName}</h5>
-        </div>
-    )
-}
-
 const reslist = [
     {
       info: {
@@ -936,31 +896,5 @@ const reslist = [
         }
       }      
       ];
-//Body
-function Body() {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="restaurant-cards-section">
-                {
-                    reslist.map(restaurant => <Restaurantcard resData={restaurant} />)
-                }
-            </div>
-        </div>
 
-    );
-}
-
-
-const Applayout = () => {
-    return (
-        <div className="mainapp">
-            <Header />
-            <Body />
-        </div>
-    )
-};
-//connecting ReactDOM root
-const root = ReactDOM.createRoot(document.getElementById("root"));
-//to render
-root.render(<Applayout/>);
+export default reslist;
