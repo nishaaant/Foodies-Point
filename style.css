@@ -5,6 +5,9 @@
     font-family: 'Exo 2', sans-serif;
     /* background-color: #E5D9F2; */
 }
+html{
+    scroll-behavior: smooth;
+}
 
 .header{
     /* border: solid 1px; */
@@ -90,8 +93,8 @@
 .card {
     background-color: #f0f0f0;
     height: 350px;
-    width: 250px;
-    margin: 30px 20px;
+    width: 270px;
+    margin: 30px 11px;
     padding: 10px;
     /* flex: 1 0 200px; */
     transition: scale 2s ease;
@@ -108,7 +111,7 @@
 
 .restaurant-img {
     /* border: 1px solid; */
-    height: 150px;
+    height: 170px;
     width: 100%;
     object-fit: cover;
     

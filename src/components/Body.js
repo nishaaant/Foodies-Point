@@ -1,10 +1,29 @@
 import Restaurantcard from "./Restaurantcard";
-import { useState } from "react";
-import reslist from "../utils.js/mockData";
+import { useState, useEffect } from "react";
+// import reslist from "../utils.js/mockData";
 
 const Body = () => {
 
-    const [reslistUpd, setreslist] = useState(reslist);
+    const [reslistUpd, setreslist] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    },[]);
+
+    const fetchData = async () => {
+        const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5649034&lng=77.2403317&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
+
+        const json = await data.json();
+        console.log(json);
+        setreslist(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    }
+
+    if(reslistUpd.length === 0)
+    {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <div className="body">
