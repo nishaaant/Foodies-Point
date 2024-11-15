@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
     const [reslistUpd, setreslist] = useState([]);
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchtext] = useState("");
 
     useEffect(() => {
@@ -20,6 +21,7 @@ const Body = () => {
         const json = await data.json();
         console.log(json);
         setreslist(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setFilteredRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
     }
 
     if(reslistUpd.length === 0)
@@ -38,8 +40,8 @@ const Body = () => {
                 }}/>
                 <button
                 onClick={() => {
-                    const filteredlist = reslistUpd.filter((res)=> res.data.name == searchText);
-                    setreslist(filteredlist);
+                    const filteredlist = reslistUpd.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                    setFilteredRestaurants(filteredlist);
                 }}>Search🔍</button>
             </div>
             <div className="filter">
@@ -55,7 +57,7 @@ const Body = () => {
             </div>
             <div className="restaurant-cards-section">
                 {
-                    reslistUpd.map((restaurant) => (
+                    filteredRestaurants.map((restaurant) => (
                         <Restaurantcard key={restaurant.info.id} resData={restaurant} />
                     ))
                 }
