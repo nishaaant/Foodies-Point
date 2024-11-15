@@ -33,7 +33,7 @@ html{
 }
 
 .nav-items{
-    width: 360px;
+    width: 500px;
     margin-right: 30px;
     font-size: 16px;
     
@@ -61,8 +61,8 @@ html{
 }
 .search {
     display: flex;
-    justify-content: space-between;
-    width: 350px;
+    /* justify-content: space-between; */
+    width: 250px;
     padding: 8px;
     margin: 0px 30px;
     border: solid;
@@ -128,3 +128,18 @@ html{
  .areaname {
     margin: 0px 10px;
  }
+
+ .shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+ }
+
+.shimmer-card{
+    background-color: #f0f0f0;
+    height: 350px;
+    width: 270px;
+    margin: 30px 11px;
+}
+.login-button{
+    padding: 10px 20px;
+}

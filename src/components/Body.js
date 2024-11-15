@@ -1,10 +1,12 @@
 import Restaurantcard from "./Restaurantcard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 // import reslist from "../utils.js/mockData";
 
 const Body = () => {
 
     const [reslistUpd, setreslist] = useState([]);
+    const [searchText, setSearchtext] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -22,7 +24,7 @@ const Body = () => {
 
     if(reslistUpd.length === 0)
     {
-        return <h1>Loading...</h1>
+        return <Shimmer />
     }
 
     return (
@@ -30,8 +32,15 @@ const Body = () => {
             <div className = "upperBody">
 
             <div className="search">
-                <h4>Search</h4>
-                <h4>🔍</h4>
+                <input type="text" className="search-bar"value={searchText} 
+                onChange={(e) => {
+                    setSearchtext(e.target.value);
+                }}/>
+                <button
+                onClick={() => {
+                    const filteredlist = reslistUpd.filter((res)=> res.data.name == searchText);
+                    setreslist(filteredlist);
+                }}>Search🔍</button>
             </div>
             <div className="filter">
                 <button className="filter-btn"
