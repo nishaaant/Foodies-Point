@@ -1,6 +1,7 @@
 import Restaurantcard from "./Restaurantcard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 // import reslist from "../utils.js/mockData";
 
 const Body = () => {
@@ -50,7 +51,7 @@ const Body = () => {
                         const filteredlist = reslistUpd.filter(
                             (res) => res.info.avgRating > 4.5
                         );
-                        setreslist(filteredlist);
+                        setFilteredRestaurants(filteredlist);
                     }}
                     >#Pyaaare</button>
             </div>
@@ -58,7 +59,7 @@ const Body = () => {
             <div className="restaurant-cards-section">
                 {
                     filteredRestaurants.map((restaurant) => (
-                        <Restaurantcard key={restaurant.info.id} resData={restaurant} />
+                        <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} className="custom-link" ><Restaurantcard  resData={restaurant} /></Link>
                     ))
                 }
             </div>

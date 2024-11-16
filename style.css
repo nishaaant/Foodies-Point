@@ -108,7 +108,10 @@ html{
     /* box-shadow: 5px 5px rgb(209, 223, 120); */
 }
 
-
+.custom-link{
+    text-decoration: none;
+    color: inherit;
+}
 .restaurant-img {
     /* border: 1px solid; */
     height: 170px;
