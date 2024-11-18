@@ -37,22 +37,22 @@ const Body = () => {
     }
 
     return (
-        <div className="body">
-            <div className = "upperBody">
+        <div className="body px-28 pt-12 font-ubuntu text-[#424242]">
+            <div className = "upperBody flex justify-between mb-4">
 
-            <div className="search">
-                <input type="text" className="search-bar"value={searchText} 
+            <div className="w-80 h-10 flex justify-between rounded-md">
+                <input type="text" placeholder="Search" className="p-4 mr-4 w-56 bg-[#E2F1E7] rounded"value={searchText} 
                 onChange={(e) => {
                     setSearchtext(e.target.value);
                 }}/>
-                <button
+                <button className="bg-[#424242] text-gray-200 w-32 rounded-lg hover:bg-slate-200 hover:text-[#424242]"
                 onClick={() => {
                     const filteredlist = reslistUpd.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                     setFilteredRestaurants(filteredlist);
-                }}>Search🔍</button>
+                }}>Enter🔍</button>
             </div>
             <div className="filter">
-                <button className="filter-btn"
+                <button className="p-1 bg-[#424242] text-slate-200 rounded-lg border-2 border-[#424242] hover:bg-slate-200 hover:text-[#424242]"
                     onClick={() => {
                         const filteredlist = reslistUpd.filter(
                             (res) => res.info.avgRating > 4.5
@@ -62,7 +62,7 @@ const Body = () => {
                     >#Pyaaare</button>
             </div>
             </div>
-            <div className="restaurant-cards-section">
+            <div className="flex flex-wrap">
                 {
                     filteredRestaurants.map((restaurant) => (
                         <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} className="custom-link" ><Restaurantcard  resData={restaurant} /></Link>

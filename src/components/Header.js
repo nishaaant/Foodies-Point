@@ -8,26 +8,26 @@ const Header = () => {
     const [btnNameReact , setBtnNameReact] = useState("Login")
     const onlineStatus = useOnlineStatus();
     return(
-        <div className="header">
-            <div className="logo-container">
+        <div className="header flex justify-between items-center bg-[#51abb2] shadow-2xl border-b-2 border-[#424242] text-[#424242] font-ubuntu">
+            <div className="logo-container w-28 mx-4">
                 <Link to={"/"} className="custom-link"><img 
                 className = "logo-img"
                 src = {LOGO_URL} /></Link>
             </div>
             <div className="nav-items">
-                <ul>
-                    <li>Status : {onlineStatus ? "🟢":"🔴"}</li>
-                    <li><Link to={"/"} className="custom-link">Home</Link></li>
-                    <li><Link to={"/about"} className="custom-link">About Us</Link></li>
-                    <li><Link to={"/contact"} className="custom-link">Contact</Link></li>
-                    <li>Cart</li>
-                        <button 
-                        className="login-button" 
+                <ul className="flex">
+                    <li className="px-4 font-bold">Status : {onlineStatus ? "🟢":"🔴"}</li>
+                    <li className="px-4 font-bold"><Link to={"/"} className="custom-link">Home</Link></li>
+                    <li className="px-4 font-bold"><Link to={"/about"} className="custom-link">About Us</Link></li>
+                    <li className="px-4 font-bold"><Link to={"/contact"} className="custom-link">Contact</Link></li>
+                    <li className="px-4 font-bold">Cart</li>
+                    <button className="login-button mx-6 px-4 py-1 bg-[#424242] rounded-md border-2 border-[#424242] text-slate-200 hover:bg-slate-200 hover:text-[#424242]" 
                         onClick={() => {
                             btnNameReact == "Login" 
                         ? setBtnNameReact("Logout") 
                         : setBtnNameReact("Login")
-                        }}>{btnNameReact}</button>
+                        }}>{btnNameReact}
+                    </button>
                 </ul>
             </div>
         </div>
