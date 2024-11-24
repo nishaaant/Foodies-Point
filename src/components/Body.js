@@ -59,7 +59,7 @@ const Body = () => {
                         );
                         setFilteredRestaurants(filteredlist);
                     }}
-                    >#Pyaaare</button>
+                    >Top Rated Restaurants</button>
             </div>
             </div>
             <div className="flex flex-wrap">
