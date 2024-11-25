@@ -16,7 +16,7 @@ const Header = () => {
 
 
     return (
-        <div className="p-1 header flex justify-between items-center bg-[#51abb2] shadow-2xl border-b-2 border-[#424242] text-[#424242] font-ubuntu">
+        <div className="p-1 w-full h-32 header flex justify-between items-center bg-[#51abb2] shadow-2xl border-b-2 border-[#424242] text-[#424242] font-ubuntu sticky top-0 ">
             <div className="logo-container w-28 mx-4">
                 <Link to={"/"} className="custom-link"><img
                     className="logo-img"

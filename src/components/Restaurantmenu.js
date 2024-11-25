@@ -14,7 +14,7 @@ const Restaurantmenu = () => {
     //return statements
     if(resInfo==null) return <Shimmer/>;
     const {name,costForTwoMessage,cuisines,avgRating} = resInfo?.cards[2]?.card?.card?.info;
-    const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+    // const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     // console.log(itemCards)
     // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 

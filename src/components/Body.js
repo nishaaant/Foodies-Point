@@ -40,19 +40,19 @@ const Body = () => {
         <div className="body px-28 pt-12 font-ubuntu text-[#424242]">
             <div className = "upperBody flex justify-between mb-4">
 
-            <div className="w-80 h-10 flex justify-between rounded-md">
+            <div className="w-100 h-10 flex justify-between rounded-md">
                 <input type="text" placeholder="Search" className="p-4 mr-4 w-56 bg-[#E2F1E7] rounded"value={searchText} 
                 onChange={(e) => {
                     setSearchtext(e.target.value);
                 }}/>
-                <button className="bg-[#424242] text-gray-200 w-32 rounded-lg hover:bg-slate-200 hover:text-[#424242]"
+                <button className="px-1 py-2 bg-[#424242] text-gray-200 w-36 rounded-lg hover:bg-slate-200 hover:text-[#424242]"
                 onClick={() => {
                     const filteredlist = reslistUpd.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                     setFilteredRestaurants(filteredlist);
                 }}>Enter🔍</button>
             </div>
             <div className="filter">
-                <button className="p-1 bg-[#424242] text-slate-200 rounded-lg border-2 border-[#424242] hover:bg-slate-200 hover:text-[#424242]"
+                <button className="px-4 py-2 bg-[#424242] text-slate-200 rounded-lg border-2 border-[#424242] hover:bg-slate-200 hover:text-[#424242]"
                     onClick={() => {
                         const filteredlist = reslistUpd.filter(
                             (res) => res.info.avgRating > 4.5
