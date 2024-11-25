@@ -6,7 +6,7 @@ const RestaurantCategory = ({data}) => {
         setShowItems(!showItems)
     }
 
-    console.log(data)
+    // console.log(data)
     return (<div className="mx-auto my-6 w-8/12">
     <div className="p-2 h-12 shadow-lg flex justify-between cursor-pointer"
     onClick={handleClick}>
