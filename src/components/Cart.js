@@ -3,27 +3,40 @@ import ItemList from "./ItemList";
 import { clearCart } from "../utils.js/cartSlice";
 
 const Cart = () => {
-
   const dispatch = useDispatch();
+  const cartItems = useSelector((store) => store.cart.items);
 
-  const cartItem = useSelector((store)=> store.cart.items)
-    return (
-      <div className="mx-auto p-2 w-8/12">
-        <div className="flex justify-between">
-        <h1 className="font-bold text-2xl">Cart</h1>
-        <button className="m-2 p-2 bg-black text-white rounded-lg"
-        onClick={()=> {
-          dispatch(clearCart())
-        }}>
-          Clear cart
+  const handleClearCart = () => {
+    if (cartItems.length > 0) {
+      dispatch(clearCart());
+      alert("Cart has been cleared!");
+    } else {
+      alert("Cart is already empty.");
+    }
+  };
+
+  return (
+    <div className="mx-auto p-4 w-8/12">
+      <div className="flex justify-between items-center border-b pb-2 mb-4">
+        <h1 className="font-bold text-3xl">Your Cart</h1>
+        <button
+          className="p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+          onClick={handleClearCart}
+        >
+          Clear Cart
         </button>
-        </div>
-        {cartItem == 0 && <h1>Cart is Empty - Please add some Items</h1>}
-        <div>
-          <ItemList items = {cartItem}/>
-        </div>
       </div>
-    )
-  }
-  
-  export default Cart;
+      {cartItems.length === 0 ? (
+        <h2 className="text-xl text-gray-600 text-center mt-8">
+          Your cart is empty! Add some delicious items to proceed. 🍔
+        </h2>
+      ) : (
+        <div>
+          <ItemList items={cartItems} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Cart;

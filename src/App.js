@@ -11,6 +11,7 @@ import Cart from "./components/Cart";
 import UserContext from "./utils.js/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils.js/appStore";
+import Footer from "./components/Footer";
 
 
 const Applayout = () => {
@@ -30,9 +31,12 @@ const Applayout = () => {
     return (
         <Provider store={appStore}>
             <UserContext.Provider value ={{loggedInUser: userName, setUserName}}>
-                <div className="mainapp">
+                <div className="flex flex-col min-h-screen">
                     <Header />
+                    <div className="flex-grow">
                     <Outlet />
+                    </div>
+                    <Footer />
                 </div>
             </UserContext.Provider>
         </Provider>

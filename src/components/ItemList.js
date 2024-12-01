@@ -1,38 +1,48 @@
 import { useDispatch } from "react-redux";
 import { ITEM_IMG_URL } from "../utils.js/constants";
 import { addItem } from "../utils.js/cartSlice";
+
 const ItemList = ({ items }) => {
-    // console.log(items)
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    return (
+  return (
+    <div className="space-y-4">
+      {items.map((item) => (
+        <div
+          key={item?.card?.info?.id}
+          className="p-4 mx-auto w-11/12 bg-white shadow-md rounded-lg flex justify-between items-center border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+        >
+          {/* Item Info */}
+          <div className="w-9/12">
+            <h3 className="font-bold text-lg text-[#10375C]">
+              {item?.card?.info?.name}
+            </h3>
+            <p className="text-md text-gray-600">
+              ₹{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}
+            </p>
+            <p className="text-sm text-gray-500 mt-2">{item?.card?.info?.description}</p>
+          </div>
 
-        <div>
-            {items.map((item) => (
-                <div key = {item?.card?.info?.id} className="p-2 mx-auto my-2 h-32 w-11/12 border-b-2 border-slate">
-                    <div className="mb-4 text-left flex justify-between">
-                        <div className="w-10/12">
-                            <span className="font-bold text-md">
-                                {item?.card?.info?.name}
-                            </span>
-                            <span className="text-md">- ₹{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}
-                            </span>
-                            <p className="text-sm my-4">{item?.card?.info?.description}</p>
-                        </div>
-                        <div className="w-2/12">
-                            <button className="bg-[#424242] rounded-md border-2 border-[#424242] text-slate-200 hover:bg-slate-200 hover:text-[#424242] p-1 absolute"
-                                onClick={() => {
-                                    dispatch(addItem(item))
-                                }}>
-                                Add+
-                            </button>
-                            <img src={ITEM_IMG_URL + item.card.info.imageId}
-                                className="w-9/12"></img>
-                        </div>
-                    </div>
-                </div>
-            ))}
+          {/* Image and Add Button */}
+          <div className="w-3/12 text-center flex flex-col items-center">
+            <img
+              src={ITEM_IMG_URL + item.card.info.imageId}
+              alt={item?.card?.info?.name}
+              className="w-20 h-20 rounded-md object-cover mb-2"
+            />
+            <button
+              className="bg-[#10375C] text-white font-semibold px-4 py-1 rounded-lg hover:bg-yellow-400 hover:text-[#10375C] transition-all duration-300"
+              onClick={() => {
+                dispatch(addItem(item));
+              }}
+            >
+              Add +
+            </button>
+          </div>
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
+
 export default ItemList;
