@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <nav
       className={`sticky top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isBlurred ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-[#F4F6FF] shadow-md"
+        isBlurred ? "bg-white/80 backdrop-blur-md shadow-lg" : "bg-transparent shadow-md"
       }`}
     >
       <div
@@ -67,11 +67,14 @@ const Header = () => {
                 Contact
               </Link>
             </li>
-            <li className="mx-2 px-4 py-2 bg-[#FF6F61] text-[#10375C] rounded-lg border-2 border-[#10375C] hover:bg-[#E9EEF2] hover:text-[#10375C] transition-all duration-200">
               <Link to={"/cart"} className="custom-link">
-                Cart - {cartItems.length}
-              </Link>
+            <li className="flex justify-between h-12 w-24  px-4 py-2 ">
+            <div className="w-8/12 hover:h-16 hover:w-10/12">
+              <img className="logo-img w-full" src="https://i.ibb.co/CwVDdys/trolley.png" alt="Logo" />
+              </div>
+              <h2>{cartItems.length}</h2>
             </li>
+              </Link>
             <button
               className="mx-6 px-4 py-1 bg-[#10375C] text-white rounded-lg border-2 border-[#10375C] hover:bg-slate-200 hover:text-[#10375C] transition-all duration-300"
               onClick={() => {
@@ -80,9 +83,9 @@ const Header = () => {
             >
               {btnNameReact}
             </button>
-            <li className="px-4 py-2 bg-[#35e22c] text-[#10375C] rounded-lg border-2 border-[#10375C] hover:bg-gray-200 transition-all duration-300">
+            {/* <li className="px-4 py-2 bg-[#35e22c] text-[#10375C] rounded-lg border-2 border-[#10375C] hover:bg-gray-200 transition-all duration-300">
               {loggedInUser}
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
